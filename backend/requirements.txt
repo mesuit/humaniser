@@ -1,7 +1,5 @@
 Flask==3.0.3
 Flask-Cors==4.0.1
 gunicorn==23.0.0
-torch==2.8.0
 transformers==4.34.0
-tokenizers==0.13.3
-
+tokenizers>=0.14,<0.15
