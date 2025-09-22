@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: humaniser-fullstack
+    env: python
+    plan: starter
+    region: oregon
+    buildCommand: |
+      # build frontend
+      cd frontend
+      npm ci
+      npm run build
+      cd ..
+      # install backend python deps
+      pip install -r backend/requirements.txt
+    startCommand: gunicorn "backend.app:create_app()" --bind 0.0.0.0:$PORT
